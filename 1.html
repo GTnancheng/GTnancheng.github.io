@@ -1,0 +1,1145 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<!--网站收录数据抓取-->
+	<meta charset="UTF-8">
+	<meta name="language" content="zh-CN">
+	<meta name="title" content="南城的个人网站">
+	<meta name="author" content="南城的个人网站">
+	<meta name="description" content="南城个人网站">
+	<meta name="keywords" content="个人网站,资源下载">
+	<meta name="robots" content="All">
+	<!--数据抓取完成-->
+	<title>南城的个人网站</title>
+	<!-- 标签图标 -->
+	<link rel="icon" href="./img/tubiao.ico">
+	<!-- 自适应 -->
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<!-- 引入Tailwind CSS -->
+	<script src="https://cdn.tailwindcss.com"></script>
+	<!-- 引入Font Awesome -->
+	<link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<!-- Css样式调用 -->
+	<link rel="stylesheet" type="text/css" href="css/cnm.sb_load.css" />
+	<link rel="stylesheet" type="text/css" href="css/cnm.sb_bg.css" />
+	<link rel="stylesheet" type="text/css" href="css/cnm.sb_pc.css" />
+	<link rel="stylesheet" type="text/css" href="css/cnm.sb_mp.css" />
+	<!-- Javascript样式调用 -->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/cnm.sb_judge.js"></script>
+	<script src="js/cnm.sb_pc.js"></script>
+	<script src="js/cnm.sb_mp.js"></script>
+	<script src="js/cnm.sb_copy.js"></script>
+	
+	<!-- 修复显示比例和响应式布局的样式 -->
+	<style>
+		/* 基础设置 - 使用相对单位确保比例一致 */
+		html {
+			font-size: 16px;
+			box-sizing: border-box;
+			scroll-behavior: smooth;
+		}
+		
+		*, *::before, *::after {
+			box-sizing: inherit;
+			margin: 0;
+			padding: 0;
+		}
+		
+		body {
+			width: 100%;
+			overflow-x: hidden;
+			line-height: 1.6;
+			min-height: 100vh;
+		}
+		
+		/* 通用响应式图片 */
+		img {
+			max-width: 100%;
+			height: auto;
+			object-fit: cover;
+		}
+		
+		/* 修复比例的核心样式 */
+		.container {
+			width: 100%;
+			max-width: 1400px;
+			margin: 0 auto;
+			padding: 0 1rem;
+		}
+		
+		/* ============== PC端样式 ============== */
+		#pc {
+			display: block;
+			width: 100%;
+			min-height: 100vh;
+			padding: 0;
+			margin: 0;
+		}
+		
+		#content {
+			width: 100%;
+			display: flex;
+			max-width: 1400px;
+			margin: 0 auto;
+			padding: 1.5rem;
+			gap: 1.5rem;
+			box-sizing: border-box;
+		}
+		
+		#cleft {
+			width: 25%;
+			min-width: 220px;
+			max-width: 280px;
+			flex-shrink: 0;
+		}
+		
+		#cright {
+			width: 75%;
+			flex-grow: 1;
+			min-height: calc(100vh - 3rem);
+		}
+		
+		/* 首页布局 */
+		#nav01 {
+			display: flex;
+			flex-wrap: wrap;
+			width: 100%;
+			gap: 2rem;
+			min-height: calc(100vh - 3rem);
+			align-items: center;
+		}
+		
+		.nav01_left, .nav01_right {
+			flex: 1;
+			min-width: 280px;
+		}
+		
+		.nav01_logo img {
+			max-height: 120px;
+			width: auto;
+		}
+		
+		/* 作品展示区域 - 响应式网格布局 */
+		#nav05 {
+			position: relative;
+			width: 100%;
+			padding: 2rem 0;
+			box-sizing: border-box;
+		}
+		
+		.nav05_centent {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+			gap: 1.5rem;
+			padding: 0 1rem;
+			margin-bottom: 2rem;
+		}
+		
+		.nav05_centent_mb {
+			min-height: 260px;
+			background: rgba(255, 255, 255, 0.8);
+			border-radius: 8px;
+			padding: 1rem;
+			box-sizing: border-box;
+			position: relative;
+			text-align: center;
+			transition: transform 0.3s ease;
+			display: flex;
+			flex-direction: column;
+		}
+		
+		.nav05_centent_mb img {
+			height: 140px;
+			width: 100%;
+			object-fit: cover;
+			margin-bottom: 1rem;
+			border-radius: 4px;
+		}
+		
+		.nav05_centent_mb h3 {
+			flex-grow: 1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		
+		/* 关于本站页面布局优化 */
+		#nav02 .nav02_kj {
+			width: 100%;
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 2rem;
+		}
+		
+		.nav02_grzl {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 2rem;
+			align-items: center;
+		}
+		
+		.nav02_grzl_headimg {
+			flex: 0 0 auto;
+		}
+		
+		.nav02_grzl_txt {
+			flex: 1;
+			min-width: 300px;
+		}
+		
+		/* ============== 移动端样式 ============== */
+		#mp {
+			display: none;
+			width: 100%;
+			min-height: 100vh;
+		}
+		
+		#excontent {
+			width: 100%;
+			padding: 1rem;
+			box-sizing: border-box;
+		}
+		
+		#exnav {
+			display: flex;
+			justify-content: space-around;
+			width: 100%;
+			padding: 0.8rem 0;
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			background: white;
+			z-index: 100;
+		}
+		
+		/* 移动端内容区域需要留出底部导航空间 */
+		#excontent > div {
+			padding-bottom: 60px;
+		}
+		
+		/* 移动端作品展示 */
+		#exnav05 {
+			width: 100%;
+			padding: 1rem 0;
+		}
+		
+		.exn5_nr {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+			gap: 1rem;
+			padding: 0 0.5rem;
+		}
+		
+		.exnav05_centent_mb {
+			min-height: 180px;
+			padding: 0.8rem;
+			display: flex;
+			flex-direction: column;
+			text-align: center;
+		}
+		
+		.exnav05_centent_mb img {
+			height: 90px;
+			width: 100%;
+			object-fit: cover;
+			margin-bottom: 0.5rem;
+		}
+		
+		/* ============== 媒体查询 - 响应不同屏幕尺寸 ============== */
+		@media (max-width: 1200px) {
+			html {
+				font-size: 15px;
+			}
+			
+			#content {
+				max-width: 1100px;
+				padding: 1.2rem;
+				gap: 1.2rem;
+			}
+			
+			.nav05_centent {
+				grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+			}
+		}
+		
+		@media (max-width: 992px) {
+			html {
+				font-size: 14.5px;
+			}
+			
+			#content {
+				max-width: 900px;
+				flex-direction: column;
+			}
+			
+			#cleft, #cright {
+				width: 100%;
+				max-width: 100%;
+			}
+			
+			#cleft {
+				display: flex;
+				overflow-x: auto;
+				padding-bottom: 1rem;
+				margin-bottom: 1rem;
+				border-bottom: 1px solid #eee;
+			}
+			
+			#cleft li {
+				flex: 0 0 auto;
+				margin-right: 1rem;
+			}
+			
+			.nav05_centent {
+				grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+			}
+		}
+		
+		@media (max-width: 768px) {
+			html {
+				font-size: 14px;
+			}
+			
+			#pc {
+				display: none;
+			}
+			
+			#mp {
+				display: block;
+			}
+			
+			.nav01_left, .nav01_right {
+				min-width: 100%;
+			}
+			
+			.nav05_centent {
+				grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+			}
+		}
+		
+		@media (max-width: 576px) {
+			html {
+				font-size: 13px;
+			}
+			
+			#excontent {
+				padding: 0.8rem;
+			}
+			
+			.exn5_nr {
+				grid-template-columns: repeat(2, 1fr);
+				gap: 0.8rem;
+			}
+			
+			.nav01_logo img {
+				max-height: 90px;
+			}
+		}
+		
+		@media (max-width: 360px) {
+			html {
+				font-size: 12px;
+			}
+			
+			.exn5_nr {
+				grid-template-columns: 1fr;
+			}
+		}
+		
+		/* 导航区域显示控制 */
+		#nav01, #nav02, #nav03, #nav04, #nav05, #nav07, #nav08 {
+			display: none;
+		}
+		
+		#nav01 {
+			display: block;
+		}
+		
+		/* 通用按钮样式 */
+		.go-btn {
+			position: absolute;
+			bottom: 1rem;
+			left: 50%;
+			transform: translateX(-50%);
+			padding: 0.5rem 1.2rem;
+			background: #1B8798;
+			color: #fff;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			transition: background 0.3s ease;
+			font-size: 0.9rem;
+		}
+		
+		/* 标题样式统一 */
+		h1, h2, h3, h4, h5 {
+			line-height: 1.3;
+			margin-bottom: 0.8rem;
+		}
+		
+		h1 {
+			font-size: clamp(1.8rem, 5vw, 2.5rem);
+		}
+		
+		h2 {
+			font-size: clamp(1.5rem, 4vw, 2.2rem);
+		}
+		
+		h3 {
+			font-size: clamp(1.3rem, 3vw, 1.8rem);
+		}
+		
+		p {
+			margin-bottom: 1rem;
+			font-size: 1rem;
+		}
+		
+		/* 音乐播放器位置优化 */
+		audio {
+			max-width: 280px;
+			width: 100%;
+		}
+		
+		/* 团队成员图片布局 */
+		.enav03_team, .exnav03_team {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 1rem;
+			padding: 1rem;
+		}
+		
+		.enav03_team img, .exnav03_team img {
+			width: clamp(80px, 20vw, 120px);
+			height: auto;
+			object-fit: cover;
+		}
+		
+		/* 修复关于本站页面的比例问题 */
+		.nav02_bg {
+			width: 100%;
+			height: 180px;
+			position: relative;
+			overflow: hidden;
+		}
+		
+		.nav02_bt {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			font-size: 2rem;
+			color: white;
+			text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+		}
+		
+		.nav02_grzl_headimg img {
+			width: 160px;
+			height: 160px;
+			border-radius: 50%;
+			object-fit: cover;
+		}
+	</style>
+
+</head>
+
+<body>
+	<!-- 音乐播放，opacity控件显示，0隐藏，1显示。 -->
+	<audio style="opacity: 1; position: fixed; bottom: 80px; right: 20px; z-index: 1000;" src="music/我的梦.mp3" controls="controls" loop autoplay preload="auto"></audio>
+
+	<!-- 电脑PC端 -->
+	<div id="pc">
+		<div id="content">
+			<!-- 内容左侧选择区域 -->
+			<ul id="cleft">
+				<div class="cleft_top">
+					<div class="cleft_topbg">
+						<div class="cleftbg_img"><img src="./img/tx.jpg" alt="头像"></div>
+					</div>
+					<div class="cleftbg_p">要每天都有好心情吖~</div>
+				</div>
+				<li id="cleft_li01" style="background-color: #ececec;">
+					<img src="font/tub1.png" /><span>官网首页</span>
+				</li>
+				<li id="cleft_li02"><img src="font/tub2.png" /><span>关于本站</span></li>
+				<li id="cleft_li03"><img src="font/tub3.png" /><span>团队</span></li>
+				<li id="cleft_li04"><img src="font/tub4.png" /><span>联系作者</span></li>
+				<li id="cleft_li05"><img src="font/tub5.png" /><span>站点展示</span></li>
+				<li id="cleft_li07"><img src="font/tub7.png" /><span>本站源码</span></li>
+				<li id="cleft_li08"><img src="font/tub1.png" /><span>静态资源</span></li>
+				<li id="cleft_li06" onclick="AddFavorite('论坛',location.href)">
+					<img src="font/tub6.png" /><span>收藏本站</span>
+				</li>
+			</ul>
+
+			<!-- 内容右侧展示区域 -->
+			<div id="cright">
+
+				<!--第一页 - 首页-HTML页面-->
+				<div id="nav01">
+					<div class="nav01_left">
+						<div class="nav01_logo">
+							<img src="./img/logo.svg" />
+							<h4>南城个人站已经注释<span>https://baidu.com</span></h4>
+						</div>
+						<div class="nav01_wz">
+							<h5>初次见面，正在人间奋斗的你！</h5>
+							<h1>欢迎来到</h1>
+							<h4>南城的个人站</h4>
+							<div class="bar"></div>
+						</div>
+						<div class="nav01_but">
+							<div class="nav01_but01">探索</div>
+							<div class="nav01_but02">联系作者</div>
+						</div>
+					</div>
+					<div class="nav01_right">
+						<div class="nav01_tpw">
+							<h3>我是一位酷酷的站长</h3>
+							<p>me a hard working hacker</p>
+						</div>
+						<div class="nav01_fpw">
+							<p>愿成长- 不负众望</p>
+						</div>
+					</div>
+					<div class="nav01_fooder">
+						版权所有:<a href="https://space.bilibili.com/3493119284742908?spm_id_from=333.337.0.0" target="_blank"
+								rel="noopener noreferrer">南城</a> &nbsp;&nbsp;|&nbsp;&nbsp; 备案号:备案？不可能滴
+						&nbsp;&nbsp;|&nbsp;&nbsp; © 2023-2025 All Copyright Reserved
+					</div>
+				</div>
+
+
+				<!-- 第二页 - 关于本站 -->
+				<div id="nav02">
+					<div class="nav02_bg">
+						<div class="nav02_bt">关于本站</div>
+					</div>
+					<!-- 站长资料 -->
+					<div class="nav02_kj nav02_grzl" style="height: auto; padding: 1rem;">
+						<h3>😁站/长/资/料</h3>
+						<div class="nav02_grzl_headimg">
+							<img src="./img/tx.jpg" alt="[头像]">
+							<a href="./img/QQ.jpg" target="_blank"
+							   rel="noopener noreferrer">联系站长</a>
+						</div>
+						<div class="nav02_grzl_txt">
+							<p>姓名：南城</p>
+							<p>邮箱：3233348751@qq.com</p>
+							<p>性别：boy</p>
+							<p>年龄：不告诉你 [一位有理想的青少年]</p>
+							<p>特长：网安</p>
+							<p>爱好：音乐、运动、设计、网安等……</p>
+							<p>性格：孤僻，胆小，内向</p>
+							<p>梦想：实现财富自由</p>
+							<p>语录：有些失误和错误无法犯两次。</p>
+						</div>
+					</div>
+					<!-- 个人介绍 -->
+					<div class="nav02_kj" style="padding: 1rem;">
+						<h3>😁个/人/介/绍</h3>
+
+						<p>
+							没有什么特长。
+						</p>
+						<p>
+							没有什么特长。
+						</p>
+						<p>
+							没有什么特长。
+						</p>
+						<p>
+							&nbsp;
+						</p>
+						<h3>😁网站的艰难运行环境</h3>
+						<p>
+							大部分都是借鉴 还会持续更新随缘 请耐心等待。哈哈哈哈哈哈哈嗝~
+						</p>
+						<p>
+							&nbsp;
+						</p>
+						<h3>😁网站源码</h3>
+						<p>
+							不给你哟，略略略
+						</p>
+						<p>
+							&nbsp;
+						</p>
+
+					</div>
+					<!-- 知识掌握 -->
+					<div class="nav02_kj mb03" style="padding: 1rem;">
+						<h3>知/识/掌/握</h3>
+						<p>掌握的技能</p>
+						<div>
+							<img src="./img/huashui.jpg" />
+							<span>&nbsp;打游戏&nbsp;</span>
+						</div>
+						<div>
+							<img src="./img/huashui.jpg" />
+							<span>&nbsp;web&nbsp;</span>
+						</div>
+						<div>
+							<img src="./img/huashui.jpg" />
+							<span>&nbsp;misc&nbsp;</span>
+						</div>
+						<div>
+							<img src="./img/huashui.jpg" />
+							<span>&nbsp;密码&nbsp;</span>
+						</div>
+						<div>
+							<img src="./img/huashui.jpg" />
+							<span>&nbsp;划水&nbsp;</span>
+						</div>
+						<p>精通掌握的技能</p>
+						<div>
+							<img src="./img/huashui.jpg" />
+							<span>&nbsp;摸鱼&nbsp;</span>
+						</div>
+						<div>
+							<img src="./img/huashui.jpg" />
+							<span>&nbsp;摸鱼&nbsp;</span>
+						</div>
+					</div>
+
+					<!-- 每日必做 -->
+					<div class="nav02_kj mb04" style="padding: 1rem;">
+						<h3>每/日/必/做</h3>
+						<div id="ejn">
+							<a href="javascript:;">摸鱼摸鱼，摸鱼摸鱼，摸鱼摸鱼，摸鱼摸鱼，摸鱼摸鱼，摸鱼摸鱼</a>
+							<a href="javascript:;">划水划水，划水划水，划水划水，划水划水，划水划水，划水划水</a>
+							<a href="javascript:;">闲聊闲聊，闲聊闲聊，闲聊闲聊，闲聊闲聊，闲聊闲聊，闲聊闲聊</a>
+							<a href="javascript:;">打游戏，打游戏，打游戏，打游戏，打游戏，打游戏，打游戏</a>
+							<a href="javascript:;">刷视频，刷视频，刷视频，刷视频，刷视频，刷视频，刷视频</a>
+						</div>
+					</div>
+					<!-- 到底了-提示 -->
+					<p class="ebpx">--- 暂时先展示这么多啦 ---</p>
+				</div>
+
+				<!-- 第三页 - 团队 -->
+				<div id="nav03">
+					<div class="enav03_p">
+						<h3 style="font-size: 10px;">LZJ<span>工作室</span></h3>
+						<h5>划水摸鱼，闲无止境~</h5>
+						<p>2024-2025</p>
+						<p>我们是黑暗中照亮书本的明灯，光明下抒写思绪的墨笔。</p>
+
+					</div>
+					<div class="enav03_team">
+						<img src="./img/rw1.png" alt="[组织者]">
+						<img src="./img/rw2.png" alt="[组织者]">
+						<img src="./img/rw3.png" alt="[组织者]">
+						<img src="./img/rw4.png" alt="[组织者]">
+						<img src="./img/rw5.png" alt="[组织者]">
+					</div>
+				</div>
+
+				<!-- 第四页 - 联系作者 -->
+				<div id="nav04">
+					<div class="nav04_bg"></div>
+					<div class="nav04_zsc">
+						<div>
+							<p>我的二维码</p>
+							<img src="./img/wx.png" alt="[微信二维码]" title="[微信二维码]">
+						</div>
+						<p>即使夜深人静，我们依然在努力！</p>
+					</div>
+				</div>
+
+				<!-- 第五页 - 站点展示 -->
+				<div id="nav05">
+					<!-- 第五页-头部图片动态 -->
+					<div class="nav05_top">
+						<div class="nav05_topbgkj">
+							<div class="nav05_top_bg"></div>
+							<div class="nav05_top_tx01"></div>
+							<div class="nav05_top_tx02"></div>
+						</div>
+						<div class="nav05_top_fj"><img src="./img/nav05_fj.png" alt="△"></div>
+					</div>
+					<!-- 第五页-内容区域 -->
+					<div class="nav05_centent">
+						<div class="nav05_centent_tit">
+							<h1>🦄官方站点🦄</h1>
+							<p>注:如果官方站点打不开可能是GitHub加载慢</p>
+						</div>
+						<!-- 作品展示模板NO2 -->
+						<div class="nav05_centent_mb">
+							<a href="https://store.steampowered.com" target="_blank" rel="noopener noreferrer">
+								<div><img src="./img/nav05_zp01.jpg" alt="Steam游戏平台"></div>
+								<h3>Steam</h3>
+								<p>一起玩游戏吧</p>
+							</a>
+							<div class="go-btn">立即前往</div>
+						</div>
+						<!-- 作品展示模板NO3 -->
+						<div class="nav05_centent_mb">
+							<a href="https://www.bilibili.com" target="_blank" rel="noopener noreferrer">
+								<div><img src="./img/nav05_zp05.jpg" alt="B站视频平台"></div>
+								<h3>B站</h3>
+								<p>哔哩哔哩 (゜-゜)つロ 干杯~</p>
+							</a>
+							<div class="go-btn">立即前往</div>
+						</div>
+						<!-- 作品展示模板NO4 -->
+						<div class="nav05_centent_mb">
+							<a href="https://www.douyin.com/" target="_blank" rel="noopener noreferrer">
+								<div><img src="./img/nav05_zp03.jpg" alt="抖音短视频平台"></div>
+								<h3>抖音</h3>
+								<p>我就知道你喜欢看</p>
+							</a>
+							<div class="go-btn">立即前往</div>
+						</div>
+					</div>
+
+					<div class="nav05_centent">
+						<div class="nav05_centent_tit">
+							<h1>🦄优秀站点🦄</h1>
+							<p>优秀的站点，就要被展示出来！</p>
+						</div>
+						<!-- 作品展示模板NO1 -->
+						<div class="nav05_centent_mb">
+							<a href="./game/俄罗斯方块/" target="_blank" rel="noopener noreferrer">
+								<div><img src="./img/nav05_zp01.jpg" alt="俄罗斯方块游戏"></div>
+								<h3>游戏1</h3>
+								<p>站内有源码</p>
+							</a>
+							<div class="go-btn">立即前往</div>
+						</div>
+						<!-- 作品展示模板NO2 -->
+						<div class="nav05_centent_mb">
+							<a href="http://slither.io" target="_blank" rel="noopener noreferrer">
+								<div><img src="./img/nav05_zp02.jpg" alt="贪吃蛇游戏"></div>
+								<h3>贪吃蛇</h3>
+								<p>网页跳转</p>
+							</a>
+							<div class="go-btn">立即前往</div>
+						</div>
+						<!-- 作品展示模板NO3 -->
+						<div class="nav05_centent_mb">
+							<a href="https://github.com" target="_blank" rel="noopener noreferrer">
+								<div><img src="./img/nav05_zp03.jpg" alt="GitHub代码仓库"></div>
+								<h3>资料查询网</h3>
+								<p>查询网络中有用的资料</p>
+							</a>
+							<div class="go-btn">立即前往</div>
+						</div>
+						<!-- 作品展示模板NO4 -->
+						<div class="nav05_centent_mb">
+							<a href="https://zyj.388tool.com/camera.php" target="_blank" rel="noopener noreferrer">
+								<div><img src="./img/nav05_zp04.jpg" alt="照妖镜工具"></div>
+								<h3>照妖镜</h3>
+								<p>看看朋友的脸。</p>
+							</a>
+							<div class="go-btn">立即前往</div>
+						</div>
+						<!-- 作品展示模板NO5 -->
+						<div class="nav05_centent_mb">
+							<a href="https://baidu.com" target="_blank" rel="noopener noreferrer">
+								<div><img src="./img/nav05_zp05.jpg" alt="百度搜索引擎"></div>
+								<h3>资料</h3>
+								<p>学习资料~</p>
+							</a>
+							<div class="go-btn">立即前往</div>
+						</div>
+						<!-- 作品展示模板NO6 -->
+						<div class="nav05_centent_mb">
+							<a href="https://mail.qq.com" target="_blank" rel="noopener noreferrer">
+								<div><img src="./img/nav05_zp01.jpg" alt="QQ邮箱"></div>
+								<h3>至尊邮箱</h3>
+								<p>个性QQ邮箱</p>
+							</a>
+							<div class="go-btn">立即前往</div>
+						</div>
+						<!-- 作品展示模板NO7 -->
+						<div class="nav05_centent_mb">
+							<a href="./img/video/1.mp4" target="_blank" rel="noopener noreferrer">
+								<div><img src="./img/nav05_zp02.jpg" alt="罗翔视频"></div>
+								<h3>视频</h3>
+								<p>罗翔的视频</p>
+							</a>
+							<div class="go-btn">立即前往</div>
+						</div>
+					</div>
+					<p class="nav05_footer">你有酷酷或者实用的站点推荐嘛？~</p>
+				</div>
+
+				<!-- 第七页 - 关于本站 -->
+				<div id="nav08">
+					<div class="nav08_bg">
+						<div class="nav08_bt">静态资源</div>
+					</div>
+					<!-- 文件托管 -->
+					<div class="nav08_kj" style="padding: 1rem;">
+						<h3>😁文/件/托/管</h3>
+						<p>
+							此网站在南城的个人GitHub上托管，所以加载非常慢。
+						</p>
+					</div>
+
+					<div class="nav08_kj" style="padding: 1rem;">
+						<h3>😀Emoji符号</h3>
+						<h4>表/情/类</h4>
+						<p>
+							😀 😁 😂 🤣 😃 😄 😅 😆 😉 😊 😋 😎 😍 😘 😗 😙 😚 ☺️ 🙂 🤗 🤩 🤔 🤨 😐 😑 😶 🙄 😏 😣 😥 😮
+							🤐 😯 😪 😫 😴 😌 😛 😜 😝 🤤 😒 😓 😔 😕 🙃 🤑 😲 ☹️ 🙁 😖 😞 😟 😤 😢 😭 😦 😧 😨 😩 🤯 😬
+							😰 😱 😳 🤪 😵 😡 😠 🤬 😷 🤒 🤕 🤢 🤮 🤧 😇 🤠 🤡 🤥 🤫 🤭 🧐 🤓 😈 👿 👹 👺 💀 👻 👽 🤖 💩
+							😺 😸 😹 😻 😼 😽 🙀 😿 😾
+						</p>
+						<h4>动/物/自/然</h4>
+						<p>
+							🐶 🐱 🐭 🐹 🐰 🦊 🦝 🐻 🐼 🦘 🦡 🐨 🐯 🦁 🐮 🐷 🐽 🐸 🐵 🙈 🙉 🙊 🐒 🐔 🐧 🐦 🐤 🐣 🐥 🦆 🦢
+							🦅 🦉 🦚 🦜 🦇 🐺 🐗 🐴 🦄 🐝 🐛 🦋 🐌 🐚 🐞 🐜 🦗 🕷 🕸 🦂 🦟 🦠 🐢 🐍 🦎 🦖 🦕 🐙 🦑 🦐 🦀
+							🐡 🐠 🐟 🐬 🐳 🐋 🦈 🐊 🐅 🐆 🦓 🦍 🐘 🦏 🦛 🐪 🐫 🦙 🦒 🐃 🐂 🐄 🐎 🐖 🐏 🐑 🐐 🦌 🐕 🐩 🐈
+							🐓 🦃 🕊 🐇 🐁 🐀 🐿 🦔 🐾 🐉 🐲 🌵 🎄 🌲 🌳 🌴 🌱 🌿 ☘️ 🍀 🎍 🎋 🍃 🍂 🍁 🍄 🌾 💐 🌷 🌹 🥀
+							🌺 🌸 🌼 🌻 🌞 🌝 🌛 🌜 🌚 🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔 🌙 🌎 🌍 🌏 💫 ⭐️ 🌟 ✨ ⚡️ ☄️ 💥 🔥 🌪 🌈
+							☀️ 🌤 ⛅️ 🌥 ☁️ 🌦 🌧 ⛈ 🌩 🌨 ❄️ ☃️ ⛄️ 🌬 💨 💧 💦 ☔️ ☂️ 🌊 🌫
+						</p>
+						<!-- 其他Emoji部分保持不变 -->
+					</div>
+
+					<!-- 到底了-提示 -->
+					<p class="ebpx8">--- 暂时先展示这么多啦 ---</p>
+				</div>
+
+				<!-- 第六页 - 本站源码 -->
+				<div id="nav07">
+					<div class="nav07_bg">
+						<div class="nav07_bt">本站源码</div>
+					</div>
+
+					<!-- 写在前面 -->
+					<div class="nav07_kj" style="padding: 1rem;">
+						<h3>😁写/在/前/面</h3>
+						<p>
+							此源码在我的GitHub上面可以下载到，但是我不给略略略。
+						</p>
+						<p>
+							源码下载：<a href="https://baike.baidu.com/item/%E5%BC%82%E6%83%B3%E5%A4%A9%E5%BC%80/2093">点击跳转</a>
+						</p>
+					</div>
+
+					<!-- 拓展功能 -->
+					<div class="nav07_kj" style="padding: 1rem;">
+						<h3>😁拓/展/功/能</h3>
+						<h4>这些都不难，你们可以自行选择添加</h4>
+						<p>
+							鼠标点击特效，修改鼠标样式
+						</p>
+						<p>
+							添加一个音乐播放器
+						</p>
+						<p>
+							添加一个看板娘
+						</p>
+						<p>
+							添加一个聊天室
+						</p>
+						<p>
+							添加一些小游戏
+						</p>
+					</div>
+
+					<!-- 到底了-提示 -->
+					<p class="ebpx7">--- 如果有好的想法或建议，可发送至站长邮箱(3233348751@qq.com)，期待您的来信---</p>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- 入场动画 -->
+		<div id="etext"></div>
+
+		<!-- 背景图片+背景灰度 -->
+		<div id="ebg"></div>
+		<div id="ebga"></div>
+
+		<!-- 背景飘落 -->
+		<div id="xuna"></div>
+		<script src="js/cnm.sb_bg.js"></script>
+	</div>
+
+	<!-- 手机MP端 -->
+	<div id="mp">
+		<div id="excontent">
+			<!-- NO1-首页内容 -->
+			<div id="exnav01">
+				<div class="exn1_top">
+					<img src="./img/zfj.svg" />
+					<span>南城的网页</span>
+				</div>
+				<div class="exn1_banner">
+					<h3>欢迎来到</h3>
+					<p>这个非常好看的站点，获取源码请前往电脑端~</p>
+				</div>
+				<ul class="exn1_but">
+					<li id="exn1_01">
+						<div><img src="font/tub1.png" /></div>
+						<h5>官网首页</h5>
+						<p>当前页面-可以前往<span class="red">PC端</span>观看美景哟！</p>
+					</li>
+					<li id="exn1_02">
+						<div><img src="font/tub2.png" /></div>
+						<h5>关于本站</h5>
+						<p>关于本站站长的相关信息与爱好哟！</p>
+					</li>
+					<li id="exn1_03">
+						<div><img src="font/tub3.png" /></div>
+						<h5>团队</h5>
+						<p>站长的小伙伴们，也许你也可以加入喔~</p>
+					</li>
+					<li id="exn1_04">
+						<div><img src="font/tub4.png" /></div>
+						<h5>联系作者</h5>
+						<p>想找我们？点这里！</p>
+					</li>
+					<li id="exn1_05">
+						<div><img src="font/tub5.png" /></div>
+						<h5>站点展示</h5>
+						<p>这里包含了站长的所有奇怪的站点哟！</p>
+					</li>
+				</ul>
+			</div>
+			<!-- NO2-关于本站 -->
+			<div id="exnav02">
+				<div class="exn02_bg">
+					<p>关于本站</p>
+				</div>
+				<div class="exn02_zl">
+					<h3 class="exn_bt">站/长/资/料</h3>
+                    <div class="exn02_kjt">
+                        <p>姓名：南城</p>
+                        <p>邮箱：3233348751@qq.com</p>
+                        <p>性别：boy</p>
+                        <p>年龄：暂不告密 [一位有理想的青少年]</p>
+                        <p>特长：腿特长，长得白</p>
+                        <p>爱好：音乐、运动、设计、网安、等……</p>
+                        <p>性格：孤僻，内向，害怕</p>
+                        <p>梦想：实现财次富自由</p>
+                        <p>语录：有些失误和错误无法犯两</p>
+                        <p>&nbsp;</p>  <!-- 空行 -->
+                    </div>
+				</div>
+				<div class="exn02_zl">
+					<h3 class="exn_bt">个/人/介/绍</h3>
+					<div class="exn02_kjt">
+						<p>什么也不会 ……</p>
+						<p>&nbsp;</p>
+						<h3>😁网站的艰难运行环境</h3>
+						<p>主页托管在Github，哈哈哈哈哈哈哈嗝~</p>
+						<p>&nbsp;</p>
+					</div>
+				</div>
+				<!-- 其他内容保持不变 -->
+				<!-- 到底了-提示 -->
+				<p class="exbpx">--- 暂时先展示这么多啦 ---</p>
+			</div>
+			<!-- NO3-团队 -->
+			<div id="exnav03">
+				<div class="exnav03_p">
+					<h3>lzj<span>工作室</span></h3>
+					<h5>划水摸鱼，闲无止境~</h5>
+					<p>2025-10-3</p>
+					<p>我们是黑暗中照亮书本的明灯，光明下抒写思绪的墨笔。</p>
+				</div>
+				<div class="exnav03_team">
+					<img src="./img/rw1.png" alt="[组织者]" />
+					<img src="./img/rw2.png" alt="[组织者]" />
+					<img src="./img/rw3.png" alt="[组织者]" />
+					<img src="./img/rw4.png" alt="[组织者]" />
+					<img src="./img/rw5.png" alt="[组织者]" />
+				</div>
+			</div>
+			<!-- NO4-联系作者 -->
+			<div id="exnav04">
+				<div class="exnav04_zsc">
+					<div>
+						<p>我的微信二维码</p>
+						<img src="./img/wx.png" alt="[联系二维码]" title="[联系二维码]">
+					</div>
+					<p>即使夜深人静，我们依然在努力！</p>
+				</div>
+			</div>
+			<!-- NO5-站点展示 -->
+			<div id="exnav05">
+				<div class="exn5_bg">
+					<div class="exn5_bg_nav">
+						<img src="./img/nav05_fj.png" />
+						<span>站点展示</span>
+					</div>
+				</div>
+				<!-- 第五页-内容区域 -->
+				<div class="exn5_nr">
+					<div class="exnav05_centent_tit">
+						<h2>🦄官方站点🦄</h2>
+					</div>
+					<!-- 作品展示项保持不变 -->
+					<div class="exnav05_centent_mb">
+						<a href="https://store.steampowered.com" target="_blank" rel="noopener noreferrer">
+							<div><img src="./img/nav05_zp01.jpg" alt="Steam游戏平台"></div>
+							<h3>Steam</h3>
+							<p>一起玩游戏吧</p>
+						</a>
+						<div class="go-btn">立即前往</div>
+					</div>
+					<div class="exnav05_centent_mb">
+						<a href="https://www.bilibili.com" target="_blank" rel="noopener noreferrer">
+							<div><img src="./img/nav05_zp05.jpg" alt="B站视频平台"></div>
+							<h3>B站</h3>
+							<p>哔哩哔哩</p>
+						</a>
+						<div class="go-btn">立即前往</div>
+					</div>
+					<div class="exnav05_centent_mb">
+						<a href="https://www.douyin.com/" target="_blank" rel="noopener noreferrer">
+							<div><img src="./img/nav05_zp03.jpg" alt="抖音短视频平台"></div>
+							<h3>抖音</h3>
+							<p>我就知道你喜欢看</p>
+						</a>
+						<div class="go-btn">立即前往</div>
+					</div>
+				</div>
+				<!--优秀站点-->
+				<div class="exn5_nr">
+					<div class="exnav05_centent_tit">
+						<h2>🦄优秀站点🦄</h2>
+						<p>优秀的站点就应该被展示出来！</p>
+					</div>
+					<!-- 作品展示项 -->
+					<div class="exnav05_centent_mb">
+						<a href="./game/俄罗斯方块/" target="_blank" rel="noopener noreferrer">
+							<div><img src="./img/nav05_zp01.jpg" alt="俄罗斯方块游戏"></div>
+							<h3>游戏1</h3>
+							<p>站内有源码</p>
+						</a>
+						<div class="go-btn">立即前往</div>
+					</div>
+					<div class="exnav05_centent_mb">
+						<a href="http://slither.io" target="_blank" rel="noopener noreferrer">
+							<div><img src="./img/nav05_zp02.jpg" alt="贪吃蛇游戏"></div>
+							<h3>贪吃蛇</h3>
+							<p>网页跳转</p>
+						</a>
+						<div class="go-btn">立即前往</div>
+					</div>
+					<div class="exnav05_centent_mb">
+						<a href="https://github.com" target="_blank" rel="noopener noreferrer">
+							<div><img src="./img/nav05_zp03.jpg" alt="GitHub代码仓库"></div>
+							<h3>资料查询网</h3>
+							<p>查询网络中有用的资料</p>
+						</a>
+						<div class="go-btn">立即前往</div>
+					</div>
+					<div class="exnav05_centent_mb">
+						<a href="https://zyj.388tool.com/camera.php" target="_blank" rel="noopener noreferrer">
+							<div><img src="./img/nav05_zp04.jpg" alt="照妖镜工具"></div>
+							<h3>照妖镜</h3>
+							<p>看看朋友的脸。</p>
+						</a>
+						<div class="go-btn">立即前往</div>
+					</div>
+				</div>
+				<p class="exnav05_footer">你有酷酷或者实用的站点推荐嘛？~</p>
+			</div>
+		</div>
+		<!-- 导航区域 -->
+		<ul id="exnav">
+			<li>
+				<img src="font/tub1.png" />
+				<p>首页</p>
+			</li>
+			<li>
+				<img src="font/tub2.png" />
+				<p>关于本站</p>
+			</li>
+			<li>
+				<img src="font/tub3.png" />
+				<p>团队</p>
+			</li>
+			<li>
+				<img src="font/tub4.png" />
+				<p>联系作者</p>
+			</li>
+			<li>
+				<img src="font/tub5.png" />
+				<p>站点展示</p>
+			</li>
+		</ul>
+		<!-- 背景飘落 -->
+		<div id="xuna"></div>
+		<script src="js/cnm.sb_bg.js"></script>
+	</div>
+	<p id="eixp">当你在凝视深渊的时候，深渊也正在凝视着你！</p>
+
+
+	<!-- 鼠标拖动效果 -->
+	<span class="js-cursor-container"></span>
+	<script>
+		(function fairyDustCursor() {
+			var possibleColors = ["#D61C59", "#E7D84B", "#1B8798"]
+			var width = window.innerWidth;
+			var height = window.innerHeight;
+			var cursor = { x: width / 2, y: width / 2 };
+			var particles = [];
+
+			function init() {
+				bindEvents();
+				loop();
+			}
+
+			function bindEvents() {
+				document.addEventListener('mousemove', onMouseMove);
+				window.addEventListener('resize', onWindowResize);
+			}
+
+			function onWindowResize(e) {
+				width = window.innerWidth;
+				height = window.innerHeight;
+			}
+
+			function onMouseMove(e) {
+				cursor.x = e.clientX;
+				cursor.y = e.clientY;
+
+				addParticle(cursor.x, cursor.y, possibleColors[Math.floor(Math.random() * possibleColors.length)]);
+			}
+
+			function addParticle(x, y, color) {
+				var particle = new Particle();
+				particle.init(x, y, color);
+				particles.push(particle);
+			}
+
+			function updateParticles() {
+
+				for (var i = 0; i < particles.length; i++) {
+					particles[i].update();
+				}
+
+				for (var i = particles.length - 1; i >= 0; i--) {
+					if (particles[i].lifeSpan < 0) {
+						particles[i].die();
+						particles.splice(i, 1);
+					}
+				}
+			}
+
+			function loop() {
+				requestAnimationFrame(loop);
+				updateParticles();
+			}
+
+			function Particle() {
+				this.character = "六";   //显示什么样的东西
+				this.lifeSpan = 120;   //ms
+				this.initialStyles = {
+					"position": "fixed",
+					"display": "inline-block",
+					"top": "0px",
+					"left": "0px",
+					"pointerEvents": "none",
+					"touch-action": "none",
+					"z-index": "10000000",
+					"
